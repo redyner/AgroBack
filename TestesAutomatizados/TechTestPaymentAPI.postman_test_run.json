@@ -1,0 +1,359 @@
+{
+	"id": "dd0101d1-0337-4d54-9d00-4b0e678908e3",
+	"name": "TechTestPaymentAPI",
+	"timestamp": "2022-08-21T15:47:38.150Z",
+	"collection_id": "0-6ff04b12-23ad-447c-83b9-3e9cd4e63de1",
+	"folder_id": "0-0db54f56-ba36-4bf7-8bfb-74162b9ebf84",
+	"environment_id": "a9d86ab9-a61f-4834-bc76-207a4cd3ef49",
+	"totalPass": 11,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "c4575b8c-2f49-474d-8552-71f058d4b6e8",
+			"name": "RegistrarCPFInvalido",
+			"url": "https://localhost:7055/Venda/Registrar",
+			"time": 170,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				170
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "d8e44a85-b78d-44d2-af3a-51a925f2201e",
+			"name": "RegistrarTelefoneInvalido",
+			"url": "https://localhost:7055/Venda/Registrar",
+			"time": 122,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "445050a3-56e0-4a5e-94c3-919443aa85db",
+			"name": "RegistrarSucesso",
+			"url": "https://localhost:7055/Venda/Registrar",
+			"time": 514,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				514
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1fedc9a2-e33c-4c5c-bb97-600a6810758b",
+			"name": "BuscarIdExistente",
+			"url": "https://localhost:7055/Venda/Buscar/1",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "648d053c-7d8d-4517-88dc-e4ecbeb17942",
+			"name": "BuscarIdInexistente",
+			"url": "https://localhost:7055/Venda/Buscar/-68563480",
+			"time": 7,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "bf5d2b43-ef51-4b6a-bf4d-accac4c9e9cf",
+			"name": "BuscarIdInvalido",
+			"url": "https://localhost:7055/Venda/Buscar/a",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "dabb92b4-2f6d-444d-8f94-33e8ff35cfa9",
+			"name": "AtualizarIdExistente",
+			"url": "https://localhost:7055/Venda/Atualizar?vendaId=31&statusVenda=2",
+			"time": 41,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				41
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "3a9c8512-956c-4f2f-9f9d-f2b17dc57bc7",
+			"name": "AtualizarIdInexistente",
+			"url": "https://localhost:7055/Venda/Atualizar?vendaId=-1&statusVenda=0",
+			"time": 47,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				47
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "115607bc-65ea-4a46-b78d-2c36e4a917c6",
+			"name": "AtualizarIdInvalido",
+			"url": "https://localhost:7055/Venda/Atualizar?vendaId=a&statusVenda=1",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "b16fe6a6-f3cd-41c7-a84c-04cea6a04a4e",
+			"name": "AtualizarIdCancelado",
+			"url": "https://localhost:7055/Venda/Atualizar?vendaId=18&statusVenda=1",
+			"time": 177,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				177
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "6cc65973-4ca3-421d-8d5f-4092cf8f917b",
+			"name": "AtualizarIdEntregue",
+			"url": "https://localhost:7055/Venda/Atualizar?vendaId=1&statusVenda=1",
+			"time": 55,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1203,
+	"collection": {
+		"requests": [
+			{
+				"id": "c4575b8c-2f49-474d-8552-71f058d4b6e8",
+				"method": "POST"
+			},
+			{
+				"id": "d8e44a85-b78d-44d2-af3a-51a925f2201e",
+				"method": "POST"
+			},
+			{
+				"id": "445050a3-56e0-4a5e-94c3-919443aa85db",
+				"method": "POST"
+			},
+			{
+				"id": "1fedc9a2-e33c-4c5c-bb97-600a6810758b",
+				"method": "GET"
+			},
+			{
+				"id": "648d053c-7d8d-4517-88dc-e4ecbeb17942",
+				"method": "GET"
+			},
+			{
+				"id": "bf5d2b43-ef51-4b6a-bf4d-accac4c9e9cf",
+				"method": "GET"
+			},
+			{
+				"id": "dabb92b4-2f6d-444d-8f94-33e8ff35cfa9",
+				"method": "PUT"
+			},
+			{
+				"id": "3a9c8512-956c-4f2f-9f9d-f2b17dc57bc7",
+				"method": "PUT"
+			},
+			{
+				"id": "115607bc-65ea-4a46-b78d-2c36e4a917c6",
+				"method": "PUT"
+			},
+			{
+				"id": "b16fe6a6-f3cd-41c7-a84c-04cea6a04a4e",
+				"method": "PUT"
+			},
+			{
+				"id": "6cc65973-4ca3-421d-8d5f-4092cf8f917b",
+				"method": "PUT"
+			}
+		]
+	}
+}
