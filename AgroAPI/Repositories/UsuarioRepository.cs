@@ -71,10 +71,11 @@ namespace Agro.Repositories
                                                 LIMIT {paginacao.Inicio-1}, {paginacao.Fim}";*/
 
                 string sql = $@"SELECT * 
-                                FROM `testedb`.`AgroUsuario` 
-                                ORDER BY `Id`";
+                                FROM `testedb`.`AgroUsuario` a
+                                JOIN `testedb`.`AgroEndereco` ae ON ae.Id = a.EnderecoId 
+                                ORDER BY a.Id";
 
-                var registros = connection.Query<Usuario>(sql).ToList();
+                var registros = connection.Query<Usuario>(sql, new[] { typeof(Usuario), typeof(Endereco) }, objects => { var usuarioObject = objects[0] as Usuario; var enderecoObject = objects[1] as Endereco; usuarioObject.Endereco = enderecoObject; return usuarioObject; }).ToList();
 
                 return registros;
             }
@@ -86,10 +87,11 @@ namespace Agro.Repositories
             {
 
                 string sql = $@"SELECT * 
-                                FROM `testedb`.`AgroUsuario` 
-                                WHERE Id = {usuarioId}";
+                                FROM `testedb`.`AgroUsuario` a
+                                JOIN `testedb`.`AgroEndereco` ae ON ae.Id = a.EnderecoId 
+                                WHERE a.Id = {usuarioId}";
 
-                var registro = connection.Query<Usuario>(sql).FirstOrDefault();
+                var registro = connection.Query<Usuario>(sql, new[] { typeof(Usuario), typeof(Endereco)}, objects => { var usuarioObject = objects[0] as Usuario; var enderecoObject = objects[1] as Endereco; usuarioObject.Endereco = enderecoObject; return usuarioObject; }).FirstOrDefault();
 
                 return registro;
             }
