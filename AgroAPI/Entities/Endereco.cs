@@ -2,7 +2,7 @@
 
 namespace Agro.Entities
 {
-    public class EnderecoRegistrar
+    public class Endereco
     {
         public string Logradouro { get; set; }
         public string Numero { get; set; }
@@ -10,12 +10,12 @@ namespace Agro.Entities
         public string Cidade { get; set; }
         public string Estado { get; set; }
 
-        public EnderecoRegistrar()
+        public Endereco()
         {
 
         }
 
-        public EnderecoRegistrar(string logradouro, string numero, string bairro, string cidade, string estado)
+        public Endereco(string logradouro, string numero, string bairro, string cidade, string estado)
         {
             Logradouro = logradouro;
             Numero = numero;

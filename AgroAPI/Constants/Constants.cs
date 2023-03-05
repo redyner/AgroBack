@@ -7,5 +7,7 @@
             public const string Celular_Invalido = "O Celular do usuário é inválido!";
 
             public const string Telefone_Invalido = "O Telefone do usuário é inválido!";
+
+            public const string Coluna_Invalida = "A coluna não existe!";
         }
 }

@@ -2,7 +2,7 @@
 
 namespace Agro.Entities
 {
-    public class UsuarioCadastrar
+    public class Usuario
     {
         public long Id { get; set; }
         public string Nome { get; set; }
@@ -13,12 +13,12 @@ namespace Agro.Entities
         public Endereco Endereco { get; set; }
         public Sexo Sexo { get; set; }
 
-        public UsuarioCadastrar()
+        public Usuario()
         {
 
         }
 
-        public UsuarioCadastrar(long id, string nome, DateTime dataNacimento, string cPF, string celular, string telefone, string logradouro, Endereco endereco, Sexo sexo)
+        public Usuario(long id, string nome, DateTime dataNacimento, string cPF, string celular, string telefone, string logradouro, Endereco endereco, Sexo sexo)
         {
             Id = id;
             Nome = nome;

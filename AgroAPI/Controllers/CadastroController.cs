@@ -26,7 +26,7 @@ namespace TechTestPaymentAPI.Controllers
 
         [HttpPost]
         [Route("Cadastrar")]
-        public IActionResult Cadastrar([FromBody] UsuarioCadastrar usuario)
+        public IActionResult Cadastrar([FromBody] Usuario usuario)
         {
                 try
                 {
@@ -34,7 +34,7 @@ namespace TechTestPaymentAPI.Controllers
 
                     return Ok("Usuario registrado com sucesso! Id: " + usuarioId);
                 }
-                catch (ExemploException e)
+                catch (CadastroException e)
                 {
                     return BadRequest(e.Message);
                 }
@@ -46,7 +46,7 @@ namespace TechTestPaymentAPI.Controllers
 
         [HttpPut]
         [Route("AtualizarCadastro")]
-        public IActionResult AtualizarCadastro([FromBody] UsuarioCadastrar usuario)
+        public IActionResult AtualizarCadastro([FromBody] Usuario usuario)
         {
             using (var connection = _conexao.Conectar())
             {
@@ -56,7 +56,7 @@ namespace TechTestPaymentAPI.Controllers
 
                     return Ok("Usuario atualizado com sucesso! Id: " + usuario.Id);
                 }
-                catch (ExemploException e)
+                catch (CadastroException e)
                 {
                     return BadRequest(e.Message);
                 }
@@ -65,7 +65,72 @@ namespace TechTestPaymentAPI.Controllers
                     return BadRequest("Ocorreu um erro inesperado: " + e.Message);
                 }
             }
+        }
 
+        [HttpDelete]
+        [Route("ExcluirCadastro")]
+        public IActionResult ExcluirCadastro([FromBody] Usuario usuario)
+        {
+            using (var connection = _conexao.Conectar())
+            {
+                try
+                {
+                    _cadastrarExecutor.AtualizarCadastro(usuario);
+
+                    return Ok("Usuario atualizado com sucesso! Id: " + usuario.Id);
+                }
+                catch (CadastroException e)
+                {
+                    return BadRequest(e.Message);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest("Ocorreu um erro inesperado: " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("BuscarCadastros")]
+        public IActionResult BuscarCadastros(string ordem, int inicio, int fim)
+        {
+            using (var connection = _conexao.Conectar())
+            {
+                try
+                {
+                    var paginacao = new Paginacao { Ordem = ordem, Inicio = inicio, Fim = fim };
+                    return Ok(_cadastrarExecutor.BuscarCadastros(paginacao));
+                }
+                catch (CadastroException e)
+                {
+                    return BadRequest(e.Message);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest("Ocorreu um erro inesperado: " + e.Message);
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("BuscarCadastroPorId")]
+        public IActionResult BuscarCadastroPorId(long usuarioId)
+        {
+            using (var connection = _conexao.Conectar())
+            {
+                try
+                {
+                    return Ok(_cadastrarExecutor.BuscarCadastroPorId(usuarioId));
+                }
+                catch (CadastroException e)
+                {
+                    return BadRequest(e.Message);
+                }
+                catch (Exception e)
+                {
+                    return BadRequest("Ocorreu um erro inesperado: " + e.Message);
+                }
+            }
         }
     }
 }

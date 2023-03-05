@@ -100,7 +100,7 @@ namespace AgroTeste.Executores
 
             var executor = new CadastrarExecutor(_usuarioRepository.Object);
 
-            executor.Validador(usuario);
+            executor.ValidadorUsuario(usuario);
 
             Assert.AreEqual(usuario.CPF, "07584826636");
         }

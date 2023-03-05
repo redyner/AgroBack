@@ -2,6 +2,7 @@
 using Agro.Interfaces;
 using Agro.Constants;
 using Agro.Services;
+using Agro.Exceptions;
 
 namespace Agro.Executores
 {
@@ -14,32 +15,56 @@ namespace Agro.Executores
             _usuarioRepository = usuarioRepository;
         }
 
-        public string Cadastrar(UsuarioCadastrar usuario)
+        public string Cadastrar(Usuario usuario)
         {
-            Validador(usuario);
+            ValidadorUsuario(usuario);
 
             return _usuarioRepository.SetUsuario(usuario);
         }
 
-        public void AtualizarCadastro(UsuarioCadastrar usuario)
+        public void AtualizarCadastro(Usuario usuario)
         {
-            Validador(usuario);            
+            ValidadorUsuario(usuario);            
 
             _usuarioRepository.UpdateUsuario(usuario);
         }
 
-        public void Validador(UsuarioCadastrar usuario)
+        public void ExcluirCadastro(long usuarioId)
+        {
+            _usuarioRepository.DeleteUsuario(usuarioId);
+        }
+
+        public List<Usuario> BuscarCadastros(Paginacao paginacao)
+        {
+            ValidadorPaginacao(paginacao);
+            return _usuarioRepository.GetUsuarios(paginacao);
+        }
+
+        public Usuario BuscarCadastroPorId(long usuarioId)
+        {
+            return _usuarioRepository.GetUsuarioPorId(usuarioId);
+        }
+
+        public void ValidadorUsuario(Usuario usuario)
         {
             if (!ValidarCPF.IsCpf(usuario.CPF))
-                throw new Exception(Constants.Mensagens.Cpf_Invalido);
+                throw new CadastroException(Constants.Mensagens.Cpf_Invalido);
 
             if (!ValidarTelefone.IsTelefone(usuario.Celular))
-                throw new Exception(Constants.Mensagens.Celular_Invalido);
+                throw new CadastroException(Constants.Mensagens.Celular_Invalido);
 
             if (!ValidarTelefone.IsTelefone(usuario.Telefone))
-                throw new Exception(Constants.Mensagens.Telefone_Invalido);
+                throw new CadastroException(Constants.Mensagens.Telefone_Invalido);
 
             usuario.CPF = usuario.CPF.Replace(".", "").Replace("-", "").Trim();
+        }
+
+        public void ValidadorPaginacao(Paginacao paginacao)
+        {
+            if (!_usuarioRepository.ValidaColunaTabela(paginacao.Ordem))
+                throw new CadastroException(Constants.Mensagens.Coluna_Invalida);
+
+            paginacao.Inicio = paginacao.Inicio - 1;
         }
     }
 }

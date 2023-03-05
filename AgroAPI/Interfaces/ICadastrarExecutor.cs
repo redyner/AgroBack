@@ -6,9 +6,11 @@ namespace Agro.Interfaces
 {
     public interface ICadastrarExecutor
     {
-        string Cadastrar(UsuarioCadastrar usuario);
-
-        void AtualizarCadastro(UsuarioCadastrar usuario);
-
+        string Cadastrar(Usuario usuario);
+        void AtualizarCadastro(Usuario usuario);
+        void ExcluirCadastro(long usuarioId);
+        List<Usuario> BuscarCadastros(Paginacao paginacao);
+        Usuario BuscarCadastroPorId(long usuarioId);
+        
     }
 }
