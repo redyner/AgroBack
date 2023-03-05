@@ -69,15 +69,15 @@ namespace TechTestPaymentAPI.Controllers
 
         [HttpDelete]
         [Route("ExcluirCadastro")]
-        public IActionResult ExcluirCadastro([FromBody] Usuario usuario)
+        public IActionResult ExcluirCadastro(long usuarioId)
         {
             using (var connection = _conexao.Conectar())
             {
                 try
                 {
-                    _cadastrarExecutor.AtualizarCadastro(usuario);
+                    _cadastrarExecutor.ExcluirCadastro(usuarioId);
 
-                    return Ok("Usuario atualizado com sucesso! Id: " + usuario.Id);
+                    return Ok("Usuario excluído com sucesso! Id: " + usuarioId);
                 }
                 catch (CadastroException e)
                 {

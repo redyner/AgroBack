@@ -14,11 +14,13 @@ namespace AgroTeste.Executores
     public class CadastrarExecutorTestes
     {
         private Mock<IUsuarioRepository> _usuarioRepository;
+        private Mock<IEnderecoRepository> _enderecoRepository;
 
         [TestInitialize]
         public void Inicialize()
         {
             _usuarioRepository = new Mock<IUsuarioRepository>();
+            _enderecoRepository = new Mock<IEnderecoRepository>();
         }
 
         [TestMethod]
@@ -32,7 +34,7 @@ namespace AgroTeste.Executores
 
             var usuario = new UsuarioCadastrarBuilder().Build();
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object,_enderecoRepository.Object);
 
             var result = executor.Cadastrar(usuario);
 
@@ -50,7 +52,7 @@ namespace AgroTeste.Executores
 
             usuario.CPF = "1";
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object, _enderecoRepository.Object);
 
             //var executeTask = executor.Cadastrar(usuario);
 
@@ -67,7 +69,7 @@ namespace AgroTeste.Executores
 
             usuario.Celular = "1";
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object, _enderecoRepository.Object);
 
             //var executeTask = executor.Cadastrar(usuario);
 
@@ -84,7 +86,7 @@ namespace AgroTeste.Executores
 
             usuario.Telefone = "1";
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object, _enderecoRepository.Object);
 
             var exception = Assert.ThrowsException<CadastroException>(() => executor.Cadastrar(usuario));
 
@@ -99,7 +101,7 @@ namespace AgroTeste.Executores
 
             usuario.CPF = "075.848.266-36";
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object, _enderecoRepository.Object);
 
             executor.ValidadorUsuario(usuario);
 
@@ -111,7 +113,7 @@ namespace AgroTeste.Executores
         {
             var usuario = new UsuarioCadastrarBuilder().Build();
 
-            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+            var executor = new CadastrarExecutor(_usuarioRepository.Object, _enderecoRepository.Object);
 
             executor.AtualizarCadastro(usuario);
             executor.BuscarCadastros();

@@ -9,15 +9,20 @@ namespace Agro.Executores
     public class CadastrarExecutor : ICadastrarExecutor
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IEnderecoRepository _enderecoRepository;
 
-        public CadastrarExecutor(IUsuarioRepository usuarioRepository)
+        public CadastrarExecutor(IUsuarioRepository usuarioRepository, IEnderecoRepository enderecoRepository)
         {
             _usuarioRepository = usuarioRepository;
+            _enderecoRepository = enderecoRepository;
         }
 
         public string Cadastrar(Usuario usuario)
         {
             //ValidadorUsuario(usuario);
+            var enderecoId = _enderecoRepository.SetEndereco(usuario.Endereco);
+
+            usuario.Endereco.Id = long.Parse(enderecoId);
 
             return _usuarioRepository.SetUsuario(usuario);
         }

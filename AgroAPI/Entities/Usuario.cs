@@ -10,7 +10,7 @@ namespace Agro.Entities
         public string CPF { get; set; }
         public string Celular { get; set; }
         public string Telefone { get; set; }
-        public Endereco Endereco { get; set; }
+        public Endereco Endereco{ get; set; }
         public Sexo Sexo { get; set; }
 
         public Usuario()

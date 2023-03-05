@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IConexao, MysqlConnection>();
 builder.Services.AddScoped<ICadastrarExecutor, CadastrarExecutor>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
 #region [Cors]
 builder.Services.AddCors();
