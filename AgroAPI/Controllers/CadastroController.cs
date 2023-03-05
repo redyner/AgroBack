@@ -92,14 +92,13 @@ namespace TechTestPaymentAPI.Controllers
 
         [HttpGet]
         [Route("BuscarCadastros")]
-        public IActionResult BuscarCadastros(string ordem, int inicio, int fim)
+        public IActionResult BuscarCadastros()
         {
             using (var connection = _conexao.Conectar())
             {
                 try
                 {
-                    var paginacao = new Paginacao { Ordem = ordem, Inicio = inicio, Fim = fim };
-                    return Ok(_cadastrarExecutor.BuscarCadastros(paginacao));
+                    return Ok(_cadastrarExecutor.BuscarCadastros());
                 }
                 catch (CadastroException e)
                 {

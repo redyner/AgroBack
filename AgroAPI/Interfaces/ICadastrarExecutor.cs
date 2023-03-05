@@ -9,7 +9,7 @@ namespace Agro.Interfaces
         string Cadastrar(Usuario usuario);
         void AtualizarCadastro(Usuario usuario);
         void ExcluirCadastro(long usuarioId);
-        List<Usuario> BuscarCadastros(Paginacao paginacao);
+        List<Usuario> BuscarCadastros();
         Usuario BuscarCadastroPorId(long usuarioId);
         
     }

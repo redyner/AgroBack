@@ -70,15 +70,19 @@ namespace Agro.Repositories
             }
         }
 
-        public List<Usuario> GetUsuarios(Paginacao paginacao)
+        public List<Usuario> GetUsuarios()
         {
             using (var connection = _conexao.Conectar())
             {
 
-                string sql = $@"SELECT * 
+/*              string sql = $@"SELECT * 
                                 FROM `testedb`.`AgroUsuario` 
                                 ORDER BY `{paginacao.Ordem}` 
-                                LIMIT {paginacao.Inicio}, {paginacao.Fim}";
+                                LIMIT {paginacao.Inicio-1}, {paginacao.Fim}";*/
+
+                string sql = $@"SELECT * 
+                                FROM `testedb`.`AgroUsuario` 
+                                ORDER BY `Id`";
 
                 var registros = connection.Query<Usuario>(sql).ToList();
 

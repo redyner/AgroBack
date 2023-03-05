@@ -10,7 +10,7 @@ namespace Agro.Interfaces
         string SetUsuario(Usuario usuario);
         void UpdateUsuario(Usuario usuario);
         void DeleteUsuario(long usuarioId);
-        List<Usuario> GetUsuarios(Paginacao paginacao);
+        List<Usuario> GetUsuarios();
         Usuario GetUsuarioPorId(long usuarioId);
         bool ValidaColunaTabela(string coluna);
 

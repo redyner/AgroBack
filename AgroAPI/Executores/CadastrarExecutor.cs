@@ -34,10 +34,9 @@ namespace Agro.Executores
             _usuarioRepository.DeleteUsuario(usuarioId);
         }
 
-        public List<Usuario> BuscarCadastros(Paginacao paginacao)
+        public List<Usuario> BuscarCadastros()
         {
-            ValidadorPaginacao(paginacao);
-            return _usuarioRepository.GetUsuarios(paginacao);
+            return _usuarioRepository.GetUsuarios();
         }
 
         public Usuario BuscarCadastroPorId(long usuarioId)
@@ -57,14 +56,6 @@ namespace Agro.Executores
                 throw new CadastroException(Constants.Mensagens.Telefone_Invalido);
 
             usuario.CPF = usuario.CPF.Replace(".", "").Replace("-", "").Trim();
-        }
-
-        public void ValidadorPaginacao(Paginacao paginacao)
-        {
-            if (!_usuarioRepository.ValidaColunaTabela(paginacao.Ordem))
-                throw new CadastroException(Constants.Mensagens.Coluna_Invalida);
-
-            paginacao.Inicio = paginacao.Inicio - 1;
         }
     }
 }
