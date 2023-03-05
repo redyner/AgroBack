@@ -106,6 +106,18 @@ namespace AgroTeste.Executores
             Assert.AreEqual(usuario.CPF, "07584826636");
         }
 
+        [TestMethod]
+        public async Task CadastrarExecutor_MetodosVoid_Sucesso()
+        {
+            var usuario = new UsuarioCadastrarBuilder().Build();
 
+            var executor = new CadastrarExecutor(_usuarioRepository.Object);
+
+            executor.AtualizarCadastro(usuario);
+            executor.BuscarCadastros();
+            executor.BuscarCadastroPorId(usuario.Id);
+            executor.ExcluirCadastro(usuario.Id);
+
+        }        
     }
 }
