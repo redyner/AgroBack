@@ -34,7 +34,7 @@ namespace TechTestPaymentAPI.Controllers
 
                     return Ok("Usuario registrado com sucesso! Id: " + usuarioId);
                 }
-                catch (VendaException e)
+                catch (ExemploException e)
                 {
                     return BadRequest(e.Message);
                 }
@@ -56,7 +56,7 @@ namespace TechTestPaymentAPI.Controllers
 
                     return Ok("Usuario atualizado com sucesso! Id: " + usuario.Id);
                 }
-                catch (VendaException e)
+                catch (ExemploException e)
                 {
                     return BadRequest(e.Message);
                 }
