@@ -6,6 +6,7 @@ using AgroTeste.Builder;
 using Agro.Entities;
 using Agro.Constants;
 using System;
+using Agro.Exceptions;
 
 namespace AgroTeste.Executores
 {
@@ -53,7 +54,7 @@ namespace AgroTeste.Executores
 
             //var executeTask = executor.Cadastrar(usuario);
 
-            var exception = Assert.ThrowsException<Exception>(() => executor.Cadastrar(usuario)); 
+            var exception = Assert.ThrowsException<CadastroException>(() => executor.Cadastrar(usuario)); 
 
             Assert.AreEqual(exception.Message, Mensagens.Cpf_Invalido);
         }
@@ -70,7 +71,7 @@ namespace AgroTeste.Executores
 
             //var executeTask = executor.Cadastrar(usuario);
 
-            var exception = Assert.ThrowsException<Exception>(() => executor.Cadastrar(usuario));
+            var exception = Assert.ThrowsException<CadastroException>(() => executor.Cadastrar(usuario));
 
             Assert.AreEqual(exception.Message, Mensagens.Celular_Invalido);
         }
@@ -85,7 +86,7 @@ namespace AgroTeste.Executores
 
             var executor = new CadastrarExecutor(_usuarioRepository.Object);
 
-            var exception = Assert.ThrowsException<Exception>(() => executor.Cadastrar(usuario));
+            var exception = Assert.ThrowsException<CadastroException>(() => executor.Cadastrar(usuario));
 
             Assert.AreEqual(exception.Message, Mensagens.Telefone_Invalido);
         }
