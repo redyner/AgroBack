@@ -54,7 +54,7 @@ namespace TechTestPaymentAPI.Controllers
                 {
                     _cadastrarExecutor.AtualizarCadastro(usuario);
 
-                    return Ok("Usuario atualizado com sucesso! Id: " + usuario.Id);
+                    return Ok("Usuario atualizado com sucesso!");
                 }
                 catch (CadastroException e)
                 {
@@ -77,7 +77,7 @@ namespace TechTestPaymentAPI.Controllers
                 {
                     _cadastrarExecutor.ExcluirCadastro(usuarioId);
 
-                    return Ok("Usuario excluído com sucesso! Id: " + usuarioId);
+                    return Ok("Usuario excluído com sucesso!");
                 }
                 catch (CadastroException e)
                 {
