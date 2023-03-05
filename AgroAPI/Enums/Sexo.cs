@@ -1,4 +1,4 @@
-﻿namespace AgroAPI.Entities.Enums
+﻿namespace Agro.Entities.Enums
 {
     public enum Sexo
     {

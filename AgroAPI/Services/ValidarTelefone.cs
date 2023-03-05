@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace AgroAPI.Services
+namespace Agro.Services
 {
     public static class ValidarTelefone
     {

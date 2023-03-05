@@ -1,6 +1,6 @@
-﻿using AgroAPI.Entities.Enums;
+﻿using Agro.Entities.Enums;
 
-namespace AgroAPI.Entities
+namespace Agro.Entities
 {
     public class UsuarioCadastrar
     {

@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using AgroAPI.Interfaces;
+using Agro.Interfaces;
 
-namespace AgroAPI.Services
+namespace Agro.Services
 {
     public class MysqlConnection : IConexao
     {

@@ -1,4 +1,4 @@
-﻿namespace AgroAPI.Services
+﻿namespace Agro.Services
 {
     public static class ValidarCPF
     {

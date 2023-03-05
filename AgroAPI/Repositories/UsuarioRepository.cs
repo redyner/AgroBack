@@ -1,11 +1,11 @@
 ﻿using Dapper;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
-using AgroAPI.Entities;
-using AgroAPI.Interfaces;
-using AgroAPI.Entities.Enums;
+using Agro.Entities;
+using Agro.Interfaces;
+using Agro.Entities.Enums;
 
-namespace AgroAPI.Repositories
+namespace Agro.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
@@ -20,8 +20,6 @@ namespace AgroAPI.Repositories
         {
             using (var connection = _conexao.Conectar())
             {
-                usuario.CPF = usuario.CPF.Replace(".", "").Replace("-", "").Trim();
-
                 string sql = $@"select Id 
                                 from usuario 
                                 where CPF = '{usuario.CPF}'";

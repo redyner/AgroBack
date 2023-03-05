@@ -1,13 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
-using AgroAPI.Entities;
-using AgroAPI.Entities.Enums;
+using Agro.Entities;
+using Agro.Entities.Enums;
 
-namespace AgroAPI.Interfaces
+namespace Agro.Interfaces
 {
     public interface IUsuarioRepository
     {
-        string SetUsuario(UsuarioCadastrar vendedor);
-        void UpdateUsuario(UsuarioCadastrar vendedor);
+        string SetUsuario(UsuarioCadastrar usuario);
+        void UpdateUsuario(UsuarioCadastrar usuario);
 
     }
 }

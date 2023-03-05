@@ -1,6 +1,8 @@
-using AgroAPI.Interfaces;
-using AgroAPI.Repositories;
-using AgroAPI.Services;
+using Agro.Executores;
+using Agro.Entities;
+using Agro.Interfaces;
+using Agro.Repositories;
+using Agro.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IConexao, MysqlConnection>();
+builder.Services.AddScoped<ICadastrarExecutor, CadastrarExecutor>();
 
 #region [Cors]
 builder.Services.AddCors();
