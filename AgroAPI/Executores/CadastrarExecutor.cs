@@ -29,7 +29,8 @@ namespace Agro.Executores
 
         public void AtualizarCadastro(Usuario usuario)
         {
-            //ValidadorUsuario(usuario);            
+            //ValidadorUsuario(usuario);
+            _enderecoRepository.UpdateEndereco(usuario.Endereco);
 
             _usuarioRepository.UpdateUsuario(usuario);
         }

@@ -44,7 +44,7 @@ namespace Agro.Repositories
         {
             using (var connection = _conexao.Conectar())
             {
-                string sql = $@"UPDATE `testedb`.`AgroUsuario` SET `Nome` = '{usuario.Nome}', `DataNacimento` = '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', `Estado` = '{usuario.Endereco.Estado}', `CPF` = '{usuario.CPF}', `Celular` = '{usuario.Celular}', `Telefone` = '{usuario.Telefone}', `Logradouro` = ' {usuario.Endereco.Logradouro}', `Numero` = '{usuario.Endereco.Numero}', `Bairro` = '{usuario.Endereco.Bairro}', `Cidade` = '{usuario.Endereco.Cidade}', `Sexo` = '{usuario.Sexo.ToString()}' WHERE Id = {usuario.Id};";
+                string sql = $@"UPDATE `testedb`.`AgroUsuario` SET `Nome` = '{usuario.Nome}', `DataNacimento` = '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', `CPF` = '{usuario.CPF}', `Celular` = '{usuario.Celular}', `Telefone` = '{usuario.Telefone}', `Sexo` = '{usuario.Sexo.ToString()}' WHERE Id = {usuario.Id};";
 
                 connection.ExecuteAsync(sql);
             }
