@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TechTestPaymentAPI\Agro.csproj" />
+    <ProjectReference Include="..\AgroAPI\Agro.csproj" />
   </ItemGroup>
 
 </Project>

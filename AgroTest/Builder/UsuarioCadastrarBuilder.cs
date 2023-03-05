@@ -8,11 +8,11 @@ using TechTestPaymentAPI.Entities.Enums;
 
 namespace TechTestPaymentAPITests.Builder
 {
-    public class VendaBuilder
+    public class UsuarioCadastrarBuilder
     {
         private readonly Venda _instancia;
 
-        public VendaBuilder()
+        public UsuarioCadastrarBuilder()
         {
             _instancia = new Venda
             {
