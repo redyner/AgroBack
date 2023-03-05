@@ -27,7 +27,7 @@ namespace AgroTeste.Executores
 
             var idCadastrado = "1";
 
-            _usuarioRepository.Setup(p => p.SetUsuario(It.IsAny<UsuarioCadastrar>())).Returns(idCadastrado);
+            _usuarioRepository.Setup(p => p.SetUsuario(It.IsAny<Usuario>())).Returns(idCadastrado);
 
             var usuario = new UsuarioCadastrarBuilder().Build();
 

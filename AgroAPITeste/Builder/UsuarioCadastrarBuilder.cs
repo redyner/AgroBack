@@ -5,11 +5,11 @@ namespace AgroTeste.Builder
 {
     public class UsuarioCadastrarBuilder
     {
-        private readonly UsuarioCadastrar _instancia;
+        private readonly Usuario _instancia;
 
         public UsuarioCadastrarBuilder()
         {
-            _instancia = new UsuarioCadastrar
+            _instancia = new Usuario
             {
                 Id = 1,
                 Nome = "Rediner Alves Vinhal",
@@ -21,7 +21,7 @@ namespace AgroTeste.Builder
             };
         }
 
-        public UsuarioCadastrar Build()
+        public Usuario Build()
         {
             return _instancia;
         }

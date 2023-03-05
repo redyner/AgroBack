@@ -10,7 +10,7 @@ namespace Agro.Entities
         public string CPF { get; set; }
         public string Celular { get; set; }
         public string Telefone { get; set; }
-        public EnderecoRegistrar Endereco { get; set; }
+        public Endereco Endereco { get; set; }
         public Sexo Sexo { get; set; }
 
         public UsuarioCadastrar()
@@ -18,7 +18,7 @@ namespace Agro.Entities
 
         }
 
-        public UsuarioCadastrar(long id, string nome, DateTime dataNacimento, string cPF, string celular, string telefone, string logradouro, EnderecoRegistrar endereco, Sexo sexo)
+        public UsuarioCadastrar(long id, string nome, DateTime dataNacimento, string cPF, string celular, string telefone, string logradouro, Endereco endereco, Sexo sexo)
         {
             Id = id;
             Nome = nome;
