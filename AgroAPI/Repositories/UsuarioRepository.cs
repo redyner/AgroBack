@@ -23,14 +23,14 @@ namespace Agro.Repositories
             using (var connection = _conexao.Conectar())
             {
                 string sql = $@"select Id 
-                                from usuario 
+                                from AgroUsuario 
                                 where CPF = '{usuario.CPF}'";
 
                 string registro = connection.Query<string>(sql).FirstOrDefault();
 
                 if (string.IsNullOrEmpty(registro))
                 {
-                    sql = $@"INSERT INTO `agro`.`usuario` (`Nome`, `DataNacimento`, `Estado`, `CPF`, `Celular`, `Telefone`, `Logradouro`, `Numero`, `Bairro`, `Cidade`, `Sexo`) VALUES('{usuario.Nome}', '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', '{usuario.Endereco.Estado}', '{usuario.CPF}', '{usuario.Celular}','{usuario.Telefone}',' {usuario.Endereco.Logradouro}',' {usuario.Endereco.Numero}',' {usuario.Endereco.Bairro}',' {usuario.Endereco.Cidade}','{usuario.Sexo.ToString()}'); select last_insert_Id();";
+                    sql = $@"INSERT INTO `testedb`.`AgroUsuario` (`Nome`, `DataNacimento`, `Estado`, `CPF`, `Celular`, `Telefone`, `Logradouro`, `Numero`, `Bairro`, `Cidade`, `Sexo`) VALUES('{usuario.Nome}', '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', '{usuario.Endereco.Estado}', '{usuario.CPF}', '{usuario.Celular}','{usuario.Telefone}',' {usuario.Endereco.Logradouro}',' {usuario.Endereco.Numero}',' {usuario.Endereco.Bairro}',' {usuario.Endereco.Cidade}','{usuario.Sexo.ToString()}'); select last_insert_Id();";
 
                     registro = connection.Query<string>(sql).FirstOrDefault();
                 }
@@ -46,14 +46,14 @@ namespace Agro.Repositories
             {
 
                 string sql = $@"select Id 
-                                from usuario 
+                                from AgroUsuario 
                                 where CPF = '{usuario.CPF}'";
 
                 string registro = connection.Query<string>(sql).FirstOrDefault();
 
                 if (string.IsNullOrEmpty(registro))
                 {
-                    sql = $@"UPDATE `agro`.`usuario` SET `Nome` = '{usuario.Nome}', `DataNacimento` = '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', `Estado` = '{usuario.Endereco.Estado}', `CPF` = '{usuario.CPF}', `Celular` = '{usuario.Celular}', `Telefone` = '{usuario.Telefone}', `Logradouro` = ' {usuario.Endereco.Logradouro}', `Numero` = '{usuario.Endereco.Numero}', `Bairro` = '{usuario.Endereco.Bairro}', `Cidade` = '{usuario.Endereco.Cidade}', `Sexo` = '{usuario.Sexo.ToString()}' WHERE Id = {usuario.Id};";
+                    sql = $@"UPDATE `testedb`.`AgroUsuario` SET `Nome` = '{usuario.Nome}', `DataNacimento` = '{usuario.DataNacimento.ToString("yyyy-MM-dd")}', `Estado` = '{usuario.Endereco.Estado}', `CPF` = '{usuario.CPF}', `Celular` = '{usuario.Celular}', `Telefone` = '{usuario.Telefone}', `Logradouro` = ' {usuario.Endereco.Logradouro}', `Numero` = '{usuario.Endereco.Numero}', `Bairro` = '{usuario.Endereco.Bairro}', `Cidade` = '{usuario.Endereco.Cidade}', `Sexo` = '{usuario.Sexo.ToString()}' WHERE Id = {usuario.Id};";
 
                     connection.ExecuteAsync(sql);
                 }
@@ -64,7 +64,7 @@ namespace Agro.Repositories
         {
             using (var connection = _conexao.Conectar())
             {                   
-                    string sql = $@"DELETE FROM `agro`.`usuario` WHERE Id = {usuarioId};";
+                    string sql = $@"DELETE FROM `testedb`.`AgroUsuario` WHERE Id = {usuarioId};";
 
                     connection.ExecuteAsync(sql);
             }
@@ -76,7 +76,7 @@ namespace Agro.Repositories
             {
 
                 string sql = $@"SELECT * 
-                                FROM `agro`.`usuario` 
+                                FROM `testedb`.`AgroUsuario` 
                                 ORDER BY `{paginacao.Ordem}` 
                                 LIMIT {paginacao.Inicio}, {paginacao.Fim}";
 
@@ -92,7 +92,7 @@ namespace Agro.Repositories
             {
 
                 string sql = $@"SELECT * 
-                                FROM `agro`.`usuario` 
+                                FROM `testedb`.`AgroUsuario` 
                                 WHERE Id = {usuarioId}";
 
                 var registro = connection.Query<Usuario>(sql).FirstOrDefault();
@@ -106,7 +106,7 @@ namespace Agro.Repositories
             using (var connection = _conexao.Conectar())
             {
 
-                string sql = $@"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'agro' AND TABLE_NAME = 'usuario' AND COLUMN_NAME = '{coluna}'";
+                string sql = $@"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'testedb' AND TABLE_NAME = 'AgroUsuario' AND COLUMN_NAME = '{coluna}'";
 
                 var registro = connection.Query<string>(sql).FirstOrDefault();
 
