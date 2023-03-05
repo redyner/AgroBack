@@ -1,8 +1,8 @@
 ﻿namespace Agro.Exceptions
 {
-    public class VendaException : ApplicationException
+    public class ExemploException : ApplicationException
     {
-        public VendaException(string message) : base(message)
+        public ExemploException(string message) : base(message)
         {
 
         }
