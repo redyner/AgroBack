@@ -17,14 +17,14 @@ namespace Agro.Executores
 
         public string Cadastrar(Usuario usuario)
         {
-            ValidadorUsuario(usuario);
+            //ValidadorUsuario(usuario);
 
             return _usuarioRepository.SetUsuario(usuario);
         }
 
         public void AtualizarCadastro(Usuario usuario)
         {
-            ValidadorUsuario(usuario);            
+            //ValidadorUsuario(usuario);            
 
             _usuarioRepository.UpdateUsuario(usuario);
         }
